@@ -1,4 +1,5 @@
-#wait-for-postgres.sh
+#!/bin/sh
+# wait-for-postgres.sh
 
 set -e
 cmd="$@"
