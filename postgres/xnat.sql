@@ -1,0 +1,3 @@
+CREATE USER xnat NOCREATEDB;
+CREATE DATABASE teamkaiser OWNER xnat;
+ALTER USER xnat WITH PASSWORD 'teamkaiser';
