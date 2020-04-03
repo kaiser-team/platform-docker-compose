@@ -8,7 +8,7 @@ services:
                 XNAT_DATASOURCE_DRIVER: 'org.postgresql.Driver'
                 XNAT_DATASOURCE_URL: 'jdbc:postgresql://xnat-db/xnat'
                 XNAT_DATASOURCE_USERNAME: 'xnat'
-                XNAT_DATASOURCE_PASSWORD: 'xnat'
+                XNAT_DATASOURCE_PASSWORD: 'teamkaiser'
                 XNAT_HIBERNATE_DIALECT: 'org.hibernate.dialect.PostgreSQL9Dialect'
                 TOMCAT_XNAT_FOLDER: ROOT
                 XNAT_ROOT: /data/xnat
