@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/sh
 
 #generate xnat config
 if [ ! -f $XNAT_HOME/config/xnat-conf.properties]; then

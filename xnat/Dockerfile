@@ -15,7 +15,6 @@ ARG TOMCAT_XNAT_FOLDER=ROOT
 
 ADD make-xnat-config.sh /usr/local/bin/make-xnat-config.sh
 ADD wait-for-postgres.sh /usr/local/bin/wait-for-postgres.sh
-
 RUN apk add --no-cache \
 	postgresql-client \
 	wget \
@@ -37,17 +36,13 @@ RUN apk add --no-cache \
     /usr/local/bin/make-xnat-config.sh && \
     rm /usr/local/bin/make-xnat-config.sh && \
     cd $CATALINA_HOME/webapps/ && \
-    wget https://api.bitbucket/org/2.0/repositories/xnatdev/xnat-web/downloads/xnat-web-${XNAT_VER}.war && \
+    wget https://api.bitbucket.org/2.0/repositories/xnatdev/xnat-web/downloads/xnat-web-1.7.6.war && \
     cd ${TOMCAT_XNAT_FOLDER} && \
-    unzip -o ../xnat-web-${XNAT_VER}.war && \
-    rm -f ../xnat-web-${XNAT_VER}.war && \
+    unzip -o ../xnat-web-1.7.6.war && \
+    rm -f ../xnat-web-1.7.6.war && \
     apk del wget
     
 EXPOSE 8080
 ENV XNAT_HOME = ${XNAT_HOME} XNAT_DATASOURCE_USERNAME = ${XNAT_DATASOURCE_USERNAME}
 
-CMD ["wait-for-postgres.sh","user/local/tomcat/bin/catelina.sh", "run"] 	
-
-
-
-
+CMD ["make-xnat-config.sh","wait-for-postgres.sh","user/local/tomcat/bin/catalina.sh", "run"] 	
